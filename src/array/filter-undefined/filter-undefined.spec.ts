@@ -19,3 +19,10 @@ test('do not filter falsey', () => {
 test('empty', () => {
     expect(filterUndefined([])).toEqual([])
 })
+
+test('readonly interface', () => {
+    const arr: ReadonlyArray<number> = [1, 2, 3, 4, 5]
+    const filtered = filterUndefined(arr)
+    // @ts-expect-error test immutability
+    filtered[1] = 0
+})

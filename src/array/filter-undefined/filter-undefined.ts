@@ -1,6 +1,10 @@
 import { isDefined } from '~/guard/is-defined'
+import { ifilter } from '~/iterator/filter/filter'
 
-export function filterUndefined<T>(array: (T | undefined)[]): T[]
-export function filterUndefined<T>(array: ReadonlyArray<T | undefined>): ReadonlyArray<T> {
-    return array.filter(isDefined)
+export function ifilterUndefined<T>(xs: Iterable<T>) {
+    return ifilter(isDefined, xs)
+}
+
+export function filterUndefined<T>(xs: Iterable<T>): T[] {
+    return [...ifilterUndefined(xs)]
 }

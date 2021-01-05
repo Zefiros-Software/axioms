@@ -1,9 +1,10 @@
-export function findLast<T>(arr: ReadonlyArray<T>, by: (item: T) => boolean): T | undefined {
-    let found: T | undefined
-    for (const item of arr) {
+import { reverse } from '~/array/reverse'
+
+export function findLast<T>(arr: Iterable<T>, by: (item: T) => boolean): T | undefined {
+    for (const item of reverse(arr)) {
         if (by(item)) {
-            found = item
+            return item
         }
     }
-    return found
+    return undefined
 }

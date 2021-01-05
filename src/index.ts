@@ -1,8 +1,11 @@
 export { memoize } from '~/algorithm/memoize'
 
-export { chunk } from '~/array/chunk'
+export { chunk } from '~/iterator/chunk'
 export { filterUndefined } from '~/array/filter-undefined'
+export { findFirst } from '~/array/find-first'
 export { findLast } from '~/array/find-last'
+export { irange, range } from '~/generator/range'
+export { ireverse, reverse } from '~/array/reverse'
 
 export { sha256 } from '~/crypto/sha256'
 
