@@ -1,4 +1,4 @@
-import { isArray } from '~/is-array'
+import { isArray } from '~/guard/is-array'
 
 test('simple', () => {
     expect(isArray([])).toBeTruthy()

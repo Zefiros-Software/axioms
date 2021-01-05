@@ -1,4 +1,4 @@
-import { isUndefined } from '~/is-undefined'
+import { isUndefined } from '~/guard/is-undefined'
 
 test('undefined', () => {
     expect(isUndefined(undefined)).toEqual(true)

@@ -1,4 +1,4 @@
-import { isString } from '~/is-string'
+import { isString } from '~/guard/is-string'
 
 test('string is string', () => {
     expect(isString('foo')).toEqual(true)
