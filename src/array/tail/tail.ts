@@ -1,7 +1,8 @@
-import { isplitHead } from '~/iterator/split'
+import { uncons } from '~/iterator/uncons'
+import { Traverser } from '~/type/traversable'
 
-export function itail<T>(xs: Iterable<T>): Iterable<T> {
-    const [, rest] = isplitHead(xs)
+export function itail<T>(xs: Iterable<T>): Traverser<T> {
+    const [, rest] = uncons(xs)
     return rest
 }
 

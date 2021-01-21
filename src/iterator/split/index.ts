@@ -1,1 +1,1 @@
-export { isplitAt, isplitHead, isplitLast, splitAt } from './split'
+export { isplitAt, isplitLast, splitAt } from './split'

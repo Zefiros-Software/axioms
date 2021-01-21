@@ -1,1 +1,1 @@
-export { length, ilength } from './length'
+export { length } from './length'

@@ -1,1 +1,1 @@
-export { fmap } from './map'
+export { fmap, gmap } from './map'

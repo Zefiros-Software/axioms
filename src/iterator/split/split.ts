@@ -1,44 +1,33 @@
+import { next } from '~/generator/next'
+import { isRight } from '~/guard/is-right'
 import { itake } from '~/iterator/take'
+import type { Maybe } from '~/type/maybe'
+import { Nothing } from '~/type/nothing'
+import { Mappable, toTraverser, Traversable, Traverser } from '~/type/traversable'
 
-export function isplitAt<T>(at: number, xs: Iterable<T>): [T[], Iterable<T>] {
+export function isplitAt<T>(at: number, xs: Mappable<T>): [T[], Traverser<T>] {
     const takeIterator = itake(at, xs)
     const first = []
-    let next: IteratorResult<T | Iterator<T>> = takeIterator.next()
-
-    while (next.done !== true) {
-        first.push(next.value as T)
-        next = takeIterator.next()
+    let it = next(takeIterator)
+    while (isRight(it)) {
+        first.push(it.right)
+        it = next(takeIterator)
     }
+    const rest = it.left
     return [
         first,
-        {
-            [Symbol.iterator]() {
-                return next.value as Iterator<T>
-            },
-        },
+        rest
     ]
 }
 
-export function isplitHead<T>(xs: Iterable<T>): [T | undefined, Iterable<T>] {
-    const iterator = xs[Symbol.iterator]()
-    const first = iterator.next()
-    return [
-        first.done !== true ? first.value : undefined,
-        {
-            [Symbol.iterator]() {
-                return iterator
-            },
-        },
-    ]
-}
 
-export function isplitLast<T>(xs: Iterable<T>): [T[], T | undefined] {
+export function isplitLast<T>(xs: Traversable<T>): [T[], Maybe<T>] {
     const array = [...xs]
-    const last = array.pop()
+    const last = array.length > 0 ? array.pop()! : Nothing
     return [array, last]
 }
 
-export function splitAt<T>(at: number, xs: Iterable<T>): [T[], T[]] {
+export function splitAt<T>(at: number, xs: Traversable<T>): [T[], T[]] {
     const [first, second] = isplitAt(at, xs)
-    return [first, [...second]]
+    return [first, [...({ [Symbol.iterator]: () => second })]]
 }

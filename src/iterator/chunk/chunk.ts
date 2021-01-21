@@ -1,13 +1,14 @@
 import { isplitAt } from '~/iterator/split/split'
-import type { RecurrentGenerator } from '~/util/trampoline/trampoline'
-import { itrampoline } from '~/util/trampoline/trampoline'
+import { Mappable, Traversable } from '~/type/traversable'
+import type { RecurrentGenerator } from '~/util/trampoline'
+import { itrampoline } from '~/util/trampoline'
 
-function _ichunk<T>(size: number, xs: Iterable<T>): RecurrentGenerator<T[]> {
+function _ichunk<T>(size: number, xs: Mappable<T>): RecurrentGenerator<T[]> {
     const [chunk, second] = isplitAt(size, xs)
-    return [chunk, chunk.length > 0 ? () => _ichunk(size, second) : undefined] as const
+    return [chunk, chunk.length > 0 ? () => _ichunk(size, second) : undefined]
 }
 
-export function* ichunk<T>(size: number, xs: Iterable<T>): Generator<T[]> {
+export function* ichunk<T>(size: number, xs: Mappable<T>): Generator<T[]> {
     yield* itrampoline(_ichunk)(size, xs)
 }
 

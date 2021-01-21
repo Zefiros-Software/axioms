@@ -1,6 +1,7 @@
 import { take, takeWhile } from './take'
 
 import { repeat } from '~/generator/repeat'
+import { irange, range } from '~/generator/range'
 
 describe('take', () => {
     test('string', () => {
@@ -83,5 +84,20 @@ describe('takeWhile', () => {
 
     test('none', () => {
         expect(takeWhile((x) => x < 0, [1, 2, 3])).toMatchInlineSnapshot(`Array []`)
+    })
+
+    test('large size', () => {
+        expect(takeWhile((x) => x < 32700, irange(32768))).toEqual(range(32700))
+    })
+
+    test('vs for loop', () => {
+        const arr = []
+        for (const x of irange(32768)) {
+            if (x >= 32700) {
+                break
+            }
+            arr.push(x)
+        }
+        expect(arr).toEqual(range(32700))
     })
 })

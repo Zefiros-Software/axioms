@@ -1,1 +1,1 @@
-export { trampoline } from './trampoline'
+export { trampoline, itrampoline, RecurrentGenerator } from './trampoline'

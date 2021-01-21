@@ -10,3 +10,5 @@ yarn-error.log
 yalc.lock
 
 *.schema.js
+
+lodash

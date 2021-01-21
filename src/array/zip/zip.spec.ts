@@ -70,8 +70,8 @@ describe('zip', () => {
         }
         //, counter()
         expect(zip(foo(), bar(), [1, 2])).toEqual([
-            ['A', 'A', 'A', 0],
-            ['B', 'B', 'B', 1],
+            [1, 'a', 1],
+            [2, 'b', 2],
         ])
     })
 

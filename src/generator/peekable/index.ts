@@ -1,0 +1,1 @@
+export { peekable } from './peekable'

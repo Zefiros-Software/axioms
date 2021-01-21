@@ -1,1 +1,1 @@
-export { ienumerate } from './enumerate'
+export { enumerate } from './enumerate'
