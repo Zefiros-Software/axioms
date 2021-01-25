@@ -1,5 +1,5 @@
 import { isplitAt } from '~/iterator/split/split'
-import { Mappable, Traversable } from '~/type/traversable'
+import type { Mappable } from '~/type/traversable'
 import type { RecurrentGenerator } from '~/util/trampoline'
 import { itrampoline } from '~/util/trampoline'
 

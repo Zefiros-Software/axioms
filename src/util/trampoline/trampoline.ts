@@ -7,7 +7,7 @@ export function itrampoline<T extends readonly unknown[], R>(f: (...args: [...T]
         let [result, cont] = f(...args)
         while (isDefined(cont)) {
             yield result
-                ;[result, cont] = cont()
+            ;[result, cont] = cont()
         }
         return result
     }

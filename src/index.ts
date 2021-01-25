@@ -1,7 +1,6 @@
 export { memoize } from '~/algorithm/memoize'
 
 export { chunk } from '~/iterator/chunk'
-export { filterUndefined } from '~/array/filter-undefined'
 export { findFirst } from '~/array/find-first'
 export { findLast } from '~/array/find-last'
 export { irange, range } from '~/generator/range'

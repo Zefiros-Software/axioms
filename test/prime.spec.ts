@@ -9,43 +9,23 @@ test('prime', () => {
 
         while (true) {
             const prime = next(xs)
-            yield prime
+            yield prime.right
             xs = ifilter((x) => x % prime.right !== 0, xs)
         }
     }
 
     expect(take(10, primes())).toMatchInlineSnapshot(`
         Array [
-          Object {
-            "right": 2,
-          },
-          Object {
-            "right": 3,
-          },
-          Object {
-            "right": 5,
-          },
-          Object {
-            "right": 7,
-          },
-          Object {
-            "right": 11,
-          },
-          Object {
-            "right": 13,
-          },
-          Object {
-            "right": 17,
-          },
-          Object {
-            "right": 19,
-          },
-          Object {
-            "right": 23,
-          },
-          Object {
-            "right": 29,
-          },
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
         ]
     `)
 })

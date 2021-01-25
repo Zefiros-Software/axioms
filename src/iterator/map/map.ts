@@ -1,7 +1,8 @@
-import { next } from "~/generator/next"
-import { isRight } from "~/guard/is-right"
-import { Either } from "~/type/either"
-import { Mappable, toTraversable, toTraverser } from "~/type/traversable"
+import { next } from '~/generator/next'
+import { isRight } from '~/guard/is-right'
+import type { Either } from '~/type/either'
+import type { Mappable } from '~/type/traversable'
+import { toTraversable, toTraverser } from '~/type/traversable'
 
 export function* gmap<T, R>(xs: Mappable<T, R>): Generator<Either<R, T>, void> {
     const iterator = toTraverser(xs)

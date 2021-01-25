@@ -3,7 +3,7 @@ import { isRight } from '~/guard/is-right'
 import { itake } from '~/iterator/take'
 import type { Maybe } from '~/type/maybe'
 import { Nothing } from '~/type/nothing'
-import { Mappable, toTraverser, Traversable, Traverser } from '~/type/traversable'
+import type { Mappable, Traversable, Traverser } from '~/type/traversable'
 
 export function isplitAt<T>(at: number, xs: Mappable<T>): [T[], Traverser<T>] {
     const takeIterator = itake(at, xs)
@@ -14,12 +14,8 @@ export function isplitAt<T>(at: number, xs: Mappable<T>): [T[], Traverser<T>] {
         it = next(takeIterator)
     }
     const rest = it.left
-    return [
-        first,
-        rest
-    ]
+    return [first, rest]
 }
-
 
 export function isplitLast<T>(xs: Traversable<T>): [T[], Maybe<T>] {
     const array = [...xs]
@@ -29,5 +25,5 @@ export function isplitLast<T>(xs: Traversable<T>): [T[], Maybe<T>] {
 
 export function splitAt<T>(at: number, xs: Traversable<T>): [T[], T[]] {
     const [first, second] = isplitAt(at, xs)
-    return [first, [...({ [Symbol.iterator]: () => second })]]
+    return [first, [...{ [Symbol.iterator]: () => second }]]
 }

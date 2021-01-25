@@ -1,7 +1,7 @@
 import { uncons } from '~/iterator/uncons'
-import { Traverser } from '~/type/traversable'
+import type { Traversable, Traverser } from '~/type/traversable'
 
-export function itail<T>(xs: Iterable<T>): Traverser<T> {
+export function itail<T>(xs: Traversable<T>): Traverser<T> {
     const [, rest] = uncons(xs)
     return rest
 }

@@ -1,5 +1,6 @@
-import { gmap } from '../map'
 import { mapAccumL } from './map-accum'
+
+import { gmap } from '../map'
 
 test('simple', () => {
     const ml = mapAccumL((a, b) => [a, a * b], 5, [9, 6, 3])

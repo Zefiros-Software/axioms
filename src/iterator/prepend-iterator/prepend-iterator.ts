@@ -1,6 +1,6 @@
-import { isRight } from "~/guard/is-right"
-import { Either } from "~/type/either"
-import { Traversable, Traverser } from "~/type/traversable"
+import { isRight } from '~/guard/is-right'
+import type { Either } from '~/type/either'
+import type { Traverser } from '~/type/traversable'
 
 export function* iprependIterator<T>(first: Either<unknown, IteratorResult<T>>, second: Traverser<T>) {
     if (isRight(first)) {

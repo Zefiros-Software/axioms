@@ -1,4 +1,4 @@
-import { Traversable } from "~/type/traversable"
+import type { Traversable } from '~/type/traversable'
 
 export function* ifilter<T>(by: (x: T) => boolean, xs: Traversable<T>) {
     for (const x of xs) {

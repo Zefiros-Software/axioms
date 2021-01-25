@@ -68,7 +68,6 @@ describe('scanl', () => {
 describe('scanl1', () => {
     const plus = (a: number, b: number) => a + b
     const div = (a: number, b: number) => a / b
-    const max = (a: number, b: number) => Math.max(a, b)
     test('plus', () => {
         expect([...scanl1(plus, [1, 2, 3, 4])]).toMatchInlineSnapshot(`
             Array [

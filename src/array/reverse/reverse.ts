@@ -1,4 +1,4 @@
-import { Traversable } from "~/type/traversable"
+import type { Traversable } from '~/type/traversable'
 
 export function* ireverse<T>(arr: readonly T[]): Generator<T, void> {
     for (let i = arr.length - 1; i >= 0; --i) {

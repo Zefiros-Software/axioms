@@ -1,8 +1,9 @@
-import { isJust } from "~/guard/is-just/is-just"
-import { isLeft } from "~/guard/is-left/is-left"
-import { isRight } from "~/guard/is-right"
-import { Maybe } from "./maybe"
-import { Nothing } from "./nothing"
+import type { Maybe } from './maybe'
+import { Nothing } from './nothing'
+
+import { isJust } from '~/guard/is-just/is-just'
+import { isLeft } from '~/guard/is-left/is-left'
+import { isRight } from '~/guard/is-right'
 
 export type Left<L> = { left: L }
 export type Right<R> = { right: R }

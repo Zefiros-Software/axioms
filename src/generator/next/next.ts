@@ -1,4 +1,4 @@
-import { Either, Right } from '~/type/either'
+import type { Either, Right } from '~/type/either'
 import type { InfiniteGenerator } from '~/type/generator'
 
 export function inext<T>(g: InfiniteGenerator<T>): Right<IteratorResult<T>>

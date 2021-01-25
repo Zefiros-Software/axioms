@@ -24,7 +24,7 @@
     "check:cost": "npx cost-of-modules --no-install --include-dev",
     "check:project": "npx npm-defaults lint",
     "check:types": "npx tsc -p tsconfig.json",
-    "coverage": "jest test --maxWorkers=1 --collectCoverage=true",
+    "coverage": "jest --maxWorkers=1 --collectCoverage=true",
     "fix": "npm run lint --fix",
     "format": "npx prettier \"**/*.{ts,js,json,yml,yaml}\" --ignore-path .gitignore --write",
     "lint:full": "bash -c \"FULL_LINT=true npm run lint\"",
@@ -32,7 +32,7 @@
     "package": "rm -rf dist && npm run build",
     "release:dry": "npm run release --dry-run",
     "release": "npx semantic-release",
-    "test": "npx concurrently \"npm run check:types\" \"npx jest test --maxWorkers=1\""
+    "test": "npx concurrently \"npm run check:types\" \"npx jest --maxWorkers=1\""
   },
   "devDependencies": {
     "@zefiros/npm-defaults": "0.2.0-beta.76",

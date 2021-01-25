@@ -1,4 +1,4 @@
-import { izipWith, zipWith } from './zip'
+import { zipWith } from './zip'
 
 import { zip } from '~/array/zip'
 import { counter } from '~/generator/counter'
