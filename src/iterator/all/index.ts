@@ -1,1 +1,1 @@
-export { all } from './all'
+export { all, every } from './all'

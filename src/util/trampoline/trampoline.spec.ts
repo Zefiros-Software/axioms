@@ -6,12 +6,8 @@ test('non trampoline', () => {
 })
 
 test('trampoline', () => {
-    const sumBelowRec = (n: number, sum = 0) => {
-        if (n === 0) {
-            return sum
-        }
-        return () => sumBelowRec(n - 1, sum + n)
-    }
+    const sumBelowRec = (n: number, sum = 0) => (n === 0 ? sum : () => sumBelowRec(n - 1, sum + n))
+
     const sumBelow = trampoline(sumBelowRec)
     expect(sumBelow(123456)).toMatchInlineSnapshot(`7620753696`)
 })

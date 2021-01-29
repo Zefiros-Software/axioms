@@ -1,9 +1,10 @@
 import { next } from '~/generator/next'
 import { isRight } from '~/guard/is-right'
 import { itakeWhile } from '~/iterator/take'
-import type { Traversable } from '~/type/traversable'
+import type { Mappable, Traverser } from '~/type/traversable'
+import { toTraversable } from '~/type/traversable'
 
-export function ispan<T>(predicate: (x: T) => boolean, xs: Traversable<T>): [T[], Traversable<T>] {
+export function ispan<T, R>(predicate: (x: T) => boolean, xs: Mappable<T, R>): [T[], Traverser<T, R>] {
     const takeIterator = itakeWhile(predicate, xs)
     const first = []
     let it = next(takeIterator)
@@ -15,7 +16,7 @@ export function ispan<T>(predicate: (x: T) => boolean, xs: Traversable<T>): [T[]
     return [first, rest]
 }
 
-export function span<T>(predicate: (x: T) => boolean, xs: Iterable<T>): [T[], T[]] {
+export function span<T, R>(predicate: (x: T) => boolean, xs: Mappable<T, R>): [T[], T[]] {
     const [first, second] = ispan(predicate, xs)
-    return [first, [...second]]
+    return [first, [...toTraversable(second)]]
 }

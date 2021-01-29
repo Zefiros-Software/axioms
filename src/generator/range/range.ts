@@ -12,6 +12,7 @@ export function* irange(start: number, stop?: number, step = 1) {
 }
 
 export function range(stop: number): number[]
+export function range(start: number, stop?: number, step?: number): number[]
 export function range(start: number, stop?: number, step = 1): number[] {
     return [...irange(start, stop, step)]
 }

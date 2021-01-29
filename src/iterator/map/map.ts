@@ -13,7 +13,7 @@ export function* gmap<T, R>(xs: Mappable<T, R>): Generator<Either<R, T>, void> {
     yield val
 }
 
-export function* fmap<T, R>(f: (x: T) => R, xs: Mappable<T, R>): Generator<R, void> {
+export function* imap<T, R>(f: (x: T) => R, xs: Mappable<T, R>): Generator<R, void> {
     for (const x of toTraversable(xs)) {
         yield f(x)
     }

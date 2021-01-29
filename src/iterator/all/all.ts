@@ -6,3 +6,5 @@ export function all<T>(predicate: (x: T) => boolean, xs: Iterable<T>): boolean {
     }
     return true
 }
+
+export const every = all

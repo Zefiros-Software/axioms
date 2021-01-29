@@ -31,7 +31,7 @@ export { KeyOf, KeysOfType, RequiredKeys, OptionalKeys } from '~/type/keys'
 export { Obj } from '~/type/obj'
 export { Simplify } from '~/type/simplify'
 export { ValueOf } from '~/type/value-of'
-export { Writeable } from '~/type/writeable'
+export { Mutable } from '~/type/writeable'
 
 export { attempt } from '~/util/attempt'
 export { identity } from '~/util/identity'

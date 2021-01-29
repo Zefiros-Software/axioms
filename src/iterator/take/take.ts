@@ -19,7 +19,7 @@ export function* itake<T>(n: number, xs: Mappable<T>): Generator<T, Traverser<T>
     return iterator
 }
 
-export function* itakeWhile<T>(predicate: (x: T) => boolean, xs: Mappable<T>): Generator<T, Traversable<T>> {
+export function* itakeWhile<T, R>(predicate: (x: T) => boolean, xs: Mappable<T, R>): Generator<T, Traverser<T, R>> {
     const iterator = peekable(xs)
     for (let peeked = iterator.peek(); isRight(peeked) && predicate(peeked.right); iterator.next(), peeked = iterator.peek()) {
         yield peeked.right
@@ -27,10 +27,10 @@ export function* itakeWhile<T>(predicate: (x: T) => boolean, xs: Mappable<T>): G
     return iterator
 }
 
-export function take<T>(n: number, xs: Mappable<T>): Iterable<T> {
+export function take<T>(n: number, xs: Mappable<T>): Traversable<T> {
     return [...itake(n, xs)]
 }
 
-export function takeWhile<T>(predicate: (x: T) => boolean, xs: Mappable<T>): Iterable<T> {
+export function takeWhile<T>(predicate: (x: T) => boolean, xs: Mappable<T>): Traversable<T> {
     return [...itakeWhile(predicate, xs)]
 }

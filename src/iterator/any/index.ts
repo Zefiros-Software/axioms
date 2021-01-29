@@ -1,1 +1,1 @@
-export { any } from './any'
+export { any, some } from './any'

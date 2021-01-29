@@ -6,3 +6,5 @@ export function any<T>(predicate: (x: T) => boolean, xs: Iterable<T>): boolean {
     }
     return false
 }
+
+export const some = any

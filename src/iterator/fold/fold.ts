@@ -17,3 +17,5 @@ export function foldl1<T>(reducer: (acc: T, val: T) => T, xs: Mappable<T>): T {
     // the result will be an empty array
     return foldl(reducer, head as T, rest)
 }
+
+export const reduce = foldl
