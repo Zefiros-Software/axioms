@@ -1,3 +1,3 @@
-export function isArray<I = unknown>(arr: ReadonlyArray<I> | unknown): arr is I[] {
+export function isArray<I>(arr: readonly I[] | unknown): arr is I[] {
     return Array.isArray(arr)
 }

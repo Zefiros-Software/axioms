@@ -1,7 +1,7 @@
 import { isRight } from '~/guard/is-right'
 import type { Either } from '~/type/either'
 import type { Maybe } from '~/type/maybe'
-import { Nothing } from '~/type/nothing'
+import { Nothing } from '~/type/maybe'
 
 export interface ParamTrie<T> {
     value: Maybe<T>

@@ -1,6 +1,6 @@
 import { isArray } from '~/guard/is-array'
 import type { Maybe } from '~/type/maybe'
-import { Nothing } from '~/type/nothing'
+import { Nothing } from '~/type/maybe'
 import type { Traversable } from '~/type/traversable'
 
 export function length<T>(xs: readonly T[]): number

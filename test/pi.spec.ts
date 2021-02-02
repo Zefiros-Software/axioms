@@ -1,17 +1,15 @@
-import { counter } from '~/generator/counter'
-import { irange, range } from '~/generator/range'
-import { foldl } from '~/iterator/fold'
+import { replicate } from '~/array/replicate/replicate'
+import { sum } from '~/array/sum'
+import { range } from '~/generator/range'
 
 test('pi', () => {
     const approxPi = (n: number): number =>
-        (foldl(
-            (a) => {
+        (sum(
+            replicate(n, () => {
                 const x = Math.random()
                 const y = Math.random()
-                return x * x + y * y < 1 ? a + 1 : a
-            },
-            0,
-            irange(n)
+                return x * x + y * y < 1 ? 1 : 0
+            })
         ) /
             n) *
         4

@@ -1,5 +1,5 @@
 import type { Maybe } from '~/type/maybe'
-import { Nothing } from '~/type/nothing'
+import { Nothing } from '~/type/maybe'
 import type { Mappable, Traverser } from '~/type/traversable'
 import { toTraverser } from '~/type/traversable'
 

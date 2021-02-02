@@ -2,7 +2,7 @@ import { next } from '~/generator/next'
 import { isRight } from '~/guard/is-right'
 import { itake } from '~/iterator/take'
 import type { Maybe } from '~/type/maybe'
-import { Nothing } from '~/type/nothing'
+import { Nothing } from '~/type/maybe'
 import type { Mappable, Traversable, Traverser } from '~/type/traversable'
 
 export function isplitAt<T>(at: number, xs: Mappable<T>): [T[], Traverser<T>] {
