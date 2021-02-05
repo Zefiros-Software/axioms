@@ -5,10 +5,10 @@ import { take } from '~/iterator/take'
 test('simple', () => {
     expect([...istack([1, 2, 3, 4])]).toMatchInlineSnapshot(`
         Array [
-          4,
-          3,
-          2,
           1,
+          2,
+          3,
+          4,
         ]
     `)
 })
@@ -18,21 +18,21 @@ test('continued', () => {
     q.push([5, 6, 7])
     expect(take(3, q)).toMatchInlineSnapshot(`
         Array [
-          7,
-          6,
           5,
+          6,
+          7,
         ]
     `)
     expect(take(2, q)).toMatchInlineSnapshot(`
         Array [
-          4,
-          3,
+          1,
+          2,
         ]
     `)
     expect([...q]).toMatchInlineSnapshot(`
         Array [
-          2,
-          1,
+          3,
+          4,
         ]
     `)
     q.push([5, 6, 7])
@@ -47,20 +47,20 @@ test('continued 2', () => {
 
     expect(take(3, q)).toMatchInlineSnapshot(`
         Array [
-          7,
           6,
-          5,
+          7,
+          4,
         ]
     `)
     expect(take(2, q)).toMatchInlineSnapshot(`
         Array [
-          4,
-          3,
+          5,
+          2,
         ]
     `)
     expect([...q]).toMatchInlineSnapshot(`
         Array [
-          2,
+          3,
           1,
         ]
     `)

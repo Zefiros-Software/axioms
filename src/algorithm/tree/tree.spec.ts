@@ -27,12 +27,12 @@ test('preorder', () => {
     expect([...dfsPreOrder(tree)]).toMatchInlineSnapshot(`
         Array [
           1,
-          3,
-          7,
-          6,
           2,
-          5,
           4,
+          5,
+          3,
+          6,
+          7,
         ]
     `)
 })
@@ -60,12 +60,12 @@ test('postorder', () => {
 
     expect([...dfsPostOrder(tree)]).toMatchInlineSnapshot(`
         Array [
-          4,
-          5,
-          2,
-          6,
           7,
+          6,
           3,
+          5,
+          4,
+          2,
           1,
         ]
     `)
